@@ -4,6 +4,7 @@ from components.component_descriptions import display_component_descriptions
 from components.data_sources import display_data_sources
 from components.reports_dashboards import display_reports_dashboards
 from components.superset_intro import display_superset_intro
+from components.potv_ce import display_potv_ce
 
 # Page configuration
 
@@ -12,6 +13,14 @@ st.set_page_config(
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded"
+)
+
+# Inject favicon manually
+st.markdown(
+    """
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/png">
+    """,
+    unsafe_allow_html=True
 )
 
 # Sidebar for navigation
@@ -71,4 +80,14 @@ elif page == "Architecture Cost Estimates":
 
 # Footer
 st.markdown("---")
-st.markdown("BI Architecture Migration Planning Tool | Created with Streamlit")
+st.markdown(
+    """
+    <div style="text-align: center;">
+        <img src="assets/logo.png" width="150">
+        <br>
+        BI Architecture Migration Planning Tool | Created by Data Alchemist
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
