@@ -3,6 +3,7 @@ from components.architecture_diagram import display_architecture_diagram
 from components.component_descriptions import display_component_descriptions
 from components.data_sources import display_data_sources
 from components.reports_dashboards import display_reports_dashboards
+from components.superset_intro import display_superset_intro
 
 # Page configuration
 
@@ -59,7 +60,7 @@ elif page == "POTV - Superset intro":
     st.write("""
     An inntroduction video to Superset.
     """)
-    display_reports_dashboards()
+    display_superset_intro()
 
 elif page == "Architecture Cost Estimates":
     st.header("Architecture Cost Estimates")
