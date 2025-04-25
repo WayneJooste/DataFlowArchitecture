@@ -80,7 +80,7 @@ elif page == "Architecture Cost Estimates":
 
 # Footer
 st.markdown("---")
-st.image("assets/logo.png", width=150)
+st.image("assets/logo.jpg", width=150)
 st.markdown(
     """
     <div style="text-align: left;">
