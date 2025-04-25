@@ -80,11 +80,10 @@ elif page == "Architecture Cost Estimates":
 
 # Footer
 st.markdown("---")
+st.image("assets/logo.png", width=150)
 st.markdown(
     """
     <div style="text-align: center;">
-        <img src="/app/assets/logo.png" width="150">
-        <br>
         BI Architecture Migration Planning Tool | Created by Data Alchemist
     </div>
     """,
