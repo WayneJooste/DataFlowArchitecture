@@ -1,7 +1,7 @@
 import streamlit as st 
 import pandas as pd
 
-def potv_ce():
+def display_potv_ce():
     tab1, tab2 = st.tabs(["Current Phase", "Future Phase (AI/ML & Real-time)"])
     
     with tab1:
