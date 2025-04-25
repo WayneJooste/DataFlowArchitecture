@@ -10,17 +10,9 @@ from components.potv_ce import display_potv_ce
 
 st.set_page_config(
     page_title="BI Architecture Migration: DOMO to Amazon Web Services",
-    page_icon="📊",
+    page_icon="assets/favicon.png",
     layout="wide",
     initial_sidebar_state="expanded"
-)
-
-# Inject favicon manually
-st.markdown(
-    """
-    <link rel="shortcut icon" href="/app/assets/favicon.png" type="image/png">
-    """,
-    unsafe_allow_html=True
 )
 
 # Sidebar for navigation
