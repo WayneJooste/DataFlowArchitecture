@@ -6,26 +6,8 @@ from components.reports_dashboards import display_reports_dashboards
 
 # Page configuration
 
-# --- Superset Video Section ---
-st.header("🔍 Introduction to EssenceSight (Superset Rebranded)")
-
-video_path = 'assets/superset.mp4'
-st.video(video_path, format="video/mp4", start_time=0)
-
-# --- Cost Estimate Section ---
-st.header("💰 Cost Estimate for Data Architecture")
-
-st.subheader("Current Architecture")
-st.write("**[Insert your actual cost estimates here]**")
-
-st.subheader("Future Architecture Expansion")
-st.write("""
-Additional resources (such as enhanced compute power, storage solutions, and managed services) 
-will be required to support the future state architecture. 
-Detailed costing will be provided before the transition to the next stage.
-""")
 st.set_page_config(
-    page_title="BI Architecture Migration: DOMO to AWS",
+    page_title="BI Architecture Migration: DOMO to Amazon Web Services",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -35,7 +17,7 @@ st.set_page_config(
 st.sidebar.title("Navigation")
 page = st.sidebar.radio(
     "Select a section:",
-    ["Architecture Overview", "Component Descriptions", "Data Sources", "Standard Reports & Dashboards"]
+    ["Architecture Overview", "Component Descriptions", "Data Sources", "Standard Reports & Dashboards","POTV - Superset intro","Architecture Cost Estimates"]
 )
 
 # Page title and intro
@@ -69,6 +51,20 @@ elif page == "Standard Reports & Dashboards":
     st.header("Standard Reports & Dashboards")
     st.write("""
     Recommended standard reports and dashboards for an online vaporization business.
+    """)
+    display_reports_dashboards()
+
+elif page == "POTV - Superset intro":
+    st.header("POTV - Superset intro")
+    st.write("""
+    An inntroduction video to Superset.
+    """)
+    display_reports_dashboards()
+
+elif page == "Architecture Cost Estimates":
+    st.header("Architecture Cost Estimates")
+    st.write("""
+    Estimated costs for Architecture build.
     """)
     display_reports_dashboards()
 
