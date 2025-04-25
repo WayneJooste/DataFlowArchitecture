@@ -5,6 +5,25 @@ from components.data_sources import display_data_sources
 from components.reports_dashboards import display_reports_dashboards
 
 # Page configuration
+
+# --- Superset Video Section ---
+st.header("🔍 Introduction to EssenceSight (Superset Rebranded)")
+
+video_path = 'assets/superset.mp4'
+st.video(video_path, format="video/mp4", start_time=0)
+
+# --- Cost Estimate Section ---
+st.header("💰 Cost Estimate for Data Architecture")
+
+st.subheader("Current Architecture")
+st.write("**[Insert your actual cost estimates here]**")
+
+st.subheader("Future Architecture Expansion")
+st.write("""
+Additional resources (such as enhanced compute power, storage solutions, and managed services) 
+will be required to support the future state architecture. 
+Detailed costing will be provided before the transition to the next stage.
+""")
 st.set_page_config(
     page_title="BI Architecture Migration: DOMO to AWS",
     page_icon="📊",
