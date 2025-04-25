@@ -26,7 +26,7 @@ def current_phase_diagram():
         'Shopify': (1, 6), 
         'Google Analytics': (1, 5),
         'Google Search Console': (1, 4),
-        'Rakuten': (1, 3),
+        'ShipNetwork': (1, 3),
         'Klaviyo': (1, 2),
         'Gorgias': (1, 1),
         'Hotjar': (1, 0),
@@ -39,10 +39,10 @@ def current_phase_diagram():
         'Data Transformation (DBT Core)': (5, 4),
         
         # Data Warehouse (Layer 4)
-        'PostgreSQL': (7, 4),
+        'AlcheSanctum': (7, 4),
         
         # Workflow Management (Layer 5)
-        'Apache Airflow': (6, 7),
+        'AlcheFlow': (6, 7),
         
         # Reporting & Visualization (Layer 6)
         'Apache Superset': (9, 4),
@@ -53,7 +53,7 @@ def current_phase_diagram():
     
     # Add nodes (data sources)
     data_sources = ['Xero', 'CIN7 Core', 'Shopify', 'Google Analytics', 
-                   'Google Search Console', 'Rakuten', 'Klaviyo', 'Gorgias', 
+                   'Google Search Console', 'ShipNetwork', 'Klaviyo', 'Gorgias', 
                    'Hotjar', 'Refersion']
     
     for source in data_sources:
@@ -112,32 +112,32 @@ def current_phase_diagram():
         name='Data Transformation'
     ))
     
-    # Connect Data Transformation to PostgreSQL
+    # Connect Data Transformation to AlcheSanctum
     fig.add_trace(go.Scatter(
-        x=[pos['Data Transformation (DBT Core)'][0], pos['PostgreSQL'][0]],
-        y=[pos['Data Transformation (DBT Core)'][1], pos['PostgreSQL'][1]],
+        x=[pos['Data Transformation (DBT Core)'][0], pos['AlcheSanctum'][0]],
+        y=[pos['Data Transformation (DBT Core)'][1], pos['AlcheSanctum'][1]],
         mode='lines',
         line=dict(width=2, color='grey'),
         hoverinfo='none',
         showlegend=False
     ))
     
-    # Add PostgreSQL node
+    # Add AlcheSanctum node
     fig.add_trace(go.Scatter(
-        x=[pos['PostgreSQL'][0]],
-        y=[pos['PostgreSQL'][1]],
+        x=[pos['AlcheSanctum'][0]],
+        y=[pos['AlcheSanctum'][1]],
         mode='markers+text',
         marker=dict(size=40, color='royalblue'),
-        text=['PostgreSQL<br>(Data Warehouse)'],
+        text=['AlcheSanctum<br>(Data Warehouse)'],
         textposition="top center",
         hoverinfo='text',
-        name='PostgreSQL'
+        name='AlcheSanctum'
     ))
     
-    # Connect PostgreSQL to Apache Superset
+    # Connect AlcheSanctum to Apache Superset
     fig.add_trace(go.Scatter(
-        x=[pos['PostgreSQL'][0], pos['Apache Superset'][0]],
-        y=[pos['PostgreSQL'][1], pos['Apache Superset'][1]],
+        x=[pos['AlcheSanctum'][0], pos['Apache Superset'][0]],
+        y=[pos['AlcheSanctum'][1], pos['Apache Superset'][1]],
         mode='lines',
         line=dict(width=2, color='grey'),
         hoverinfo='none',
@@ -156,22 +156,22 @@ def current_phase_diagram():
         name='Apache Superset'
     ))
     
-    # Add Apache Airflow node
+    # Add AlcheFlow node
     fig.add_trace(go.Scatter(
-        x=[pos['Apache Airflow'][0]],
-        y=[pos['Apache Airflow'][1]],
+        x=[pos['AlcheFlow'][0]],
+        y=[pos['AlcheFlow'][1]],
         mode='markers+text',
         marker=dict(size=40, color='lightblue'),
-        text=['Apache Airflow<br>(Workflow Management)'],
+        text=['AlcheFlow<br>(Workflow Management)'],
         textposition="top center",
         hoverinfo='text',
-        name='Apache Airflow'
+        name='AlcheFlow'
     ))
     
-    # Connect Airflow to Data Transformation, PostgreSQL, and APIs
+    # Connect Airflow to Data Transformation, AlcheSanctum, and APIs
     fig.add_trace(go.Scatter(
-        x=[pos['Apache Airflow'][0], pos['Data Transformation (DBT Core)'][0]],
-        y=[pos['Apache Airflow'][1], pos['Data Transformation (DBT Core)'][1]],
+        x=[pos['AlcheFlow'][0], pos['Data Transformation (DBT Core)'][0]],
+        y=[pos['AlcheFlow'][1], pos['Data Transformation (DBT Core)'][1]],
         mode='lines',
         line=dict(width=2, color='lightblue', dash='dash'),
         hoverinfo='none',
@@ -179,8 +179,8 @@ def current_phase_diagram():
     ))
     
     fig.add_trace(go.Scatter(
-        x=[pos['Apache Airflow'][0], pos['PostgreSQL'][0]],
-        y=[pos['Apache Airflow'][1], pos['PostgreSQL'][1]],
+        x=[pos['AlcheFlow'][0], pos['AlcheSanctum'][0]],
+        y=[pos['AlcheFlow'][1], pos['AlcheSanctum'][1]],
         mode='lines',
         line=dict(width=2, color='lightblue', dash='dash'),
         hoverinfo='none',
@@ -188,8 +188,8 @@ def current_phase_diagram():
     ))
     
     fig.add_trace(go.Scatter(
-        x=[pos['Apache Airflow'][0], pos['APIs'][0]],
-        y=[pos['Apache Airflow'][1], pos['APIs'][1]],
+        x=[pos['AlcheFlow'][0], pos['APIs'][0]],
+        y=[pos['AlcheFlow'][1], pos['APIs'][1]],
         mode='lines',
         line=dict(width=2, color='lightblue', dash='dash'),
         hoverinfo='none',
@@ -244,8 +244,8 @@ def current_phase_diagram():
         - **Data Sources**: Various business systems (Xero, Shopify, etc.) that provide raw data
         - **APIs**: Integration points for extracting data from source systems
         - **Data Transformation (DBT Core)**: Tool for transforming raw data into analytics-ready models
-        - **PostgreSQL**: Central data warehouse storing transformed data
-        - **Apache Airflow**: Workflow management tool orchestrating the entire data pipeline
+        - **AlcheSanctum**: Central data warehouse storing transformed data
+        - **AlcheFlow**: Workflow management tool orchestrating the entire data pipeline
         - **Apache Superset**: Reporting and visualization platform for business users
         - **AWS Environment**: Cloud infrastructure hosting all components except data sources
         """)
@@ -262,7 +262,7 @@ def future_phase_diagram():
         'Shopify': (1, 6), 
         'Google Analytics': (1, 5),
         'Google Search Console': (1, 4),
-        'Rakuten': (1, 3),
+        'ShipNetwork': (1, 3),
         'Klaviyo': (1, 2),
         'Gorgias': (1, 1),
         'Hotjar': (1, 0),
@@ -272,7 +272,7 @@ def future_phase_diagram():
         'APIs': (3, 4),
         
         # Kafka (NEW)
-        'Apache Kafka': (3, 2),
+        'AlcheStream': (3, 2),
         
         # Data Transformation (Layer 3)
         'Data Transformation (DBT Core)': (5, 4),
@@ -281,10 +281,10 @@ def future_phase_diagram():
         'AI/ML (Python)': (5, 2),
         
         # Data Warehouse (Layer 4)
-        'PostgreSQL': (7, 4),
+        'AlcheSanctum': (7, 4),
         
         # Workflow Management (Layer 5)
-        'Apache Airflow': (6, 7),
+        'AlcheFlow': (6, 7),
         
         # Reporting & Visualization (Layer 6)
         'Apache Superset': (9, 4),
@@ -295,7 +295,7 @@ def future_phase_diagram():
     
     # Add nodes (data sources)
     data_sources = ['Xero', 'CIN7 Core', 'Shopify', 'Google Analytics', 
-                   'Google Search Console', 'Rakuten', 'Klaviyo', 'Gorgias', 
+                   'Google Search Console', 'ShipNetwork', 'Klaviyo', 'Gorgias', 
                    'Hotjar', 'Refersion']
     
     for source in data_sources:
@@ -323,8 +323,8 @@ def future_phase_diagram():
         # Connect selected sources to Kafka (real-time sources)
         if source in ['Shopify', 'Klaviyo', 'Hotjar', 'Gorgias']:
             fig.add_trace(go.Scatter(
-                x=[pos[source][0], pos['Apache Kafka'][0]],
-                y=[pos[source][1], pos['Apache Kafka'][1]],
+                x=[pos[source][0], pos['AlcheStream'][0]],
+                y=[pos[source][1], pos['AlcheStream'][1]],
                 mode='lines',
                 line=dict(width=1, color='red', dash='dot'),
                 hoverinfo='none',
@@ -345,14 +345,14 @@ def future_phase_diagram():
     
     # Add Kafka node (NEW)
     fig.add_trace(go.Scatter(
-        x=[pos['Apache Kafka'][0]],
-        y=[pos['Apache Kafka'][1]],
+        x=[pos['AlcheStream'][0]],
+        y=[pos['AlcheStream'][1]],
         mode='markers+text',
         marker=dict(size=35, color='red'),
-        text=['Apache Kafka<br>(Real-time Streaming)'],
+        text=['AlcheStream<br>(Real-time Streaming)'],
         textposition="top center",
         hoverinfo='text',
-        name='Apache Kafka'
+        name='AlcheStream'
     ))
     
     # Connect APIs to Data Transformation
@@ -367,8 +367,8 @@ def future_phase_diagram():
     
     # Connect Kafka to AI/ML
     fig.add_trace(go.Scatter(
-        x=[pos['Apache Kafka'][0], pos['AI/ML (Python)'][0]],
-        y=[pos['Apache Kafka'][1], pos['AI/ML (Python)'][1]],
+        x=[pos['AlcheStream'][0], pos['AI/ML (Python)'][0]],
+        y=[pos['AlcheStream'][1], pos['AI/ML (Python)'][1]],
         mode='lines',
         line=dict(width=2, color='red'),
         hoverinfo='none',
@@ -399,42 +399,42 @@ def future_phase_diagram():
         name='AI/ML'
     ))
     
-    # Connect Data Transformation to PostgreSQL
+    # Connect Data Transformation to AlcheSanctum
     fig.add_trace(go.Scatter(
-        x=[pos['Data Transformation (DBT Core)'][0], pos['PostgreSQL'][0]],
-        y=[pos['Data Transformation (DBT Core)'][1], pos['PostgreSQL'][1]],
+        x=[pos['Data Transformation (DBT Core)'][0], pos['AlcheSanctum'][0]],
+        y=[pos['Data Transformation (DBT Core)'][1], pos['AlcheSanctum'][1]],
         mode='lines',
         line=dict(width=2, color='grey'),
         hoverinfo='none',
         showlegend=False
     ))
     
-    # Connect AI/ML to PostgreSQL
+    # Connect AI/ML to AlcheSanctum
     fig.add_trace(go.Scatter(
-        x=[pos['AI/ML (Python)'][0], pos['PostgreSQL'][0]],
-        y=[pos['AI/ML (Python)'][1], pos['PostgreSQL'][1]],
+        x=[pos['AI/ML (Python)'][0], pos['AlcheSanctum'][0]],
+        y=[pos['AI/ML (Python)'][1], pos['AlcheSanctum'][1]],
         mode='lines',
         line=dict(width=2, color='green'),
         hoverinfo='none',
         showlegend=False
     ))
     
-    # Add PostgreSQL node
+    # Add AlcheSanctum node
     fig.add_trace(go.Scatter(
-        x=[pos['PostgreSQL'][0]],
-        y=[pos['PostgreSQL'][1]],
+        x=[pos['AlcheSanctum'][0]],
+        y=[pos['AlcheSanctum'][1]],
         mode='markers+text',
         marker=dict(size=40, color='royalblue'),
-        text=['PostgreSQL<br>(Data Warehouse)'],
+        text=['AlcheSanctum<br>(Data Warehouse)'],
         textposition="top center",
         hoverinfo='text',
-        name='PostgreSQL'
+        name='AlcheSanctum'
     ))
     
-    # Connect PostgreSQL to Apache Superset
+    # Connect AlcheSanctum to Apache Superset
     fig.add_trace(go.Scatter(
-        x=[pos['PostgreSQL'][0], pos['Apache Superset'][0]],
-        y=[pos['PostgreSQL'][1], pos['Apache Superset'][1]],
+        x=[pos['AlcheSanctum'][0], pos['Apache Superset'][0]],
+        y=[pos['AlcheSanctum'][1], pos['Apache Superset'][1]],
         mode='lines',
         line=dict(width=2, color='grey'),
         hoverinfo='none',
@@ -453,24 +453,24 @@ def future_phase_diagram():
         name='Apache Superset'
     ))
     
-    # Add Apache Airflow node
+    # Add AlcheFlow node
     fig.add_trace(go.Scatter(
-        x=[pos['Apache Airflow'][0]],
-        y=[pos['Apache Airflow'][1]],
+        x=[pos['AlcheFlow'][0]],
+        y=[pos['AlcheFlow'][1]],
         mode='markers+text',
         marker=dict(size=40, color='lightblue'),
-        text=['Apache Airflow<br>(Workflow Management)'],
+        text=['AlcheFlow<br>(Workflow Management)'],
         textposition="top center",
         hoverinfo='text',
-        name='Apache Airflow'
+        name='AlcheFlow'
     ))
     
     # Connect Airflow to various components
-    components = ['Data Transformation (DBT Core)', 'PostgreSQL', 'APIs', 'AI/ML (Python)', 'Apache Kafka']
+    components = ['Data Transformation (DBT Core)', 'AlcheSanctum', 'APIs', 'AI/ML (Python)', 'AlcheStream']
     for component in components:
         fig.add_trace(go.Scatter(
-            x=[pos['Apache Airflow'][0], pos[component][0]],
-            y=[pos['Apache Airflow'][1], pos[component][1]],
+            x=[pos['AlcheFlow'][0], pos[component][0]],
+            y=[pos['AlcheFlow'][1], pos[component][1]],
             mode='lines',
             line=dict(width=2, color='lightblue', dash='dash'),
             hoverinfo='none',
@@ -524,7 +524,7 @@ def future_phase_diagram():
         st.markdown("""
         ### New Components in Phase 2:
         
-        - **Apache Kafka**: Real-time data streaming platform for capturing and processing real-time events
+        - **AlcheStream**: Real-time data streaming platform for capturing and processing real-time events
         - **AI/ML Processing (Python)**: Custom Python-based machine learning models for predictive analytics and customer behavior analysis
         
         ### Enhanced Data Flows:

@@ -1,0 +1,15 @@
+import streamlit as st 
+
+def potv_ce():
+    tab1, tab2 = st.tabs(["Current Phase", "Future Phase (AI/ML & Real-time)"])
+    
+    with tab1:
+        st.write("### Phase 1: Initial Migration from DOMO to AWS")
+        current_phase_diagram()
+        
+    with tab2:
+        st.write("### Phase 2: Enhanced with AI/ML and Real-time Analytics")
+        future_phase_diagram()
+
+    
+    

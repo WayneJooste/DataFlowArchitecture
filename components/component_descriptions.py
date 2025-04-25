@@ -11,13 +11,13 @@ def display_component_descriptions():
             "considerations": ["Requires cloud expertise", "Costs need monitoring", "Proper security configuration essential"]
         },
         {
-            "name": "PostgreSQL",
-            "description": "Open-source relational database management system that will serve as the central data warehouse. PostgreSQL offers robust performance, reliability, and advanced features for handling complex analytical workloads.",
+            "name": "AlcheSanctum",
+            "description": "Open-source relational database management system that will serve as the central data warehouse. AlcheSanctum offers robust performance, reliability, and advanced features for handling complex analytical workloads.",
             "benefits": ["Open-source (cost-effective)", "Excellent SQL compliance", "Advanced analytical functions", "Robust performance", "Strong community support"],
             "considerations": ["Requires proper sizing and optimization", "Needs regular maintenance"]
         },
         {
-            "name": "Apache Airflow",
+            "name": "AlcheFlow",
             "description": "Open-source platform for programmatically authoring, scheduling, and monitoring workflows. Airflow will orchestrate the entire data pipeline, from extraction to transformation and loading processes.",
             "benefits": ["Code-based workflow definition", "Rich UI for monitoring", "Extensible through plugins", "Robust scheduling capabilities", "Large community and extensive documentation"],
             "considerations": ["Learning curve for DAG-based workflows", "Requires Python knowledge", "Needs proper resource allocation"]
@@ -52,7 +52,7 @@ def display_component_descriptions():
     
     future_components = [
         {
-            "name": "Apache Kafka",
+            "name": "AlcheStream",
             "description": "Distributed event streaming platform for high-performance data pipelines, streaming analytics, and data integration. Kafka will enable real-time data processing for customer behavior analysis.",
             "benefits": ["Real-time data streaming", "High throughput", "Fault tolerance", "Scalable architecture", "Message persistence"],
             "considerations": ["Complex to set up and manage", "Requires careful planning for topics and partitions", "Additional infrastructure resources"]

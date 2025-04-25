@@ -10,9 +10,9 @@ def display_reports_dashboards():
     """)
     
     # Different dashboard categories
-    dashboard_categories = ["Executive", "Sales & Marketing", "Inventory & Operations", "Financial", "Customer Experience"]
+    dashboard_categories = ["Executive", "Sales & Marketing", "Inventory & Operations", "Financial", "Customer Experience", "Specialized Reports", "Future Reports", "Roadmap"]
     
-    tab1, tab2, tab3, tab4, tab5 = st.tabs(dashboard_categories)
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs(dashboard_categories)
     
     with tab1:
         st.write("### Executive Dashboards")
@@ -222,114 +222,117 @@ def display_reports_dashboards():
                 st.write(f"**Visualization Type:** {dashboard['visualization']}")
                 st.write(f"**Refresh Frequency:** {dashboard['refresh']}")
     
-    # Specialized reports for vaporization business
-    st.write("### Specialized Reports for Vaporization Business")
+    with tab6:
+        st.write("### Specialized Reports for Vaporization Business")
+        # Specialized reports for vaporization business
+        specialized_reports = [
+            {
+                "name": "Age Verification Compliance",
+                "description": "Tracking of age verification processes and compliance",
+                "metrics": ["Age Verification Rate", "Verification Method Used", "Failed Verifications", "Compliance by Region", "Age Verification Process Completion Rate"],
+                "importance": "Critical for regulatory compliance in the vape industry"
+            },
+            {
+                "name": "Product Regulation Tracking",
+                "description": "Monitoring of product compliance with various regulations",
+                "metrics": ["Product Registration Status", "Regulatory Changes by Region", "Non-compliant Products", "Required Documentation Status", "Upcoming Regulatory Deadlines"],
+                "importance": "Essential for managing the complex regulatory landscape for vape products"
+            },
+            {
+                "name": "Flavor Popularity Analysis",
+                "description": "Detailed analysis of product flavors and their performance",
+                "metrics": ["Sales by Flavor", "Customer Ratings by Flavor", "Flavor Trends Over Time", "Flavor Preferences by Region/Demographic", "New Flavor Performance"],
+                "importance": "Critical for product development and inventory planning"
+            },
+            {
+                "name": "Device vs. Consumable Analysis",
+                "description": "Comparison of device sales versus consumable sales (e.g., vape devices vs. e-liquids)",
+                "metrics": ["Device-to-Consumable Ratio", "Customer Lifetime by Device Type", "Attachment Rate", "Reorder Rate for Consumables", "Upgrade Patterns"],
+                "importance": "Important for understanding the full customer lifecycle and revenue patterns"
+            },
+            {
+                "name": "Nicotine Strength Analysis",
+                "description": "Analysis of sales by nicotine strength levels",
+                "metrics": ["Sales by Nicotine Strength", "Strength Preferences by Customer Segment", "Strength Trends Over Time", "Regional Strength Preferences", "Conversion Between Strengths"],
+                "importance": "Valuable for product planning and understanding customer preferences"
+            }
+        ]
     
-    specialized_reports = [
-        {
-            "name": "Age Verification Compliance",
-            "description": "Tracking of age verification processes and compliance",
-            "metrics": ["Age Verification Rate", "Verification Method Used", "Failed Verifications", "Compliance by Region", "Age Verification Process Completion Rate"],
-            "importance": "Critical for regulatory compliance in the vape industry"
-        },
-        {
-            "name": "Product Regulation Tracking",
-            "description": "Monitoring of product compliance with various regulations",
-            "metrics": ["Product Registration Status", "Regulatory Changes by Region", "Non-compliant Products", "Required Documentation Status", "Upcoming Regulatory Deadlines"],
-            "importance": "Essential for managing the complex regulatory landscape for vape products"
-        },
-        {
-            "name": "Flavor Popularity Analysis",
-            "description": "Detailed analysis of product flavors and their performance",
-            "metrics": ["Sales by Flavor", "Customer Ratings by Flavor", "Flavor Trends Over Time", "Flavor Preferences by Region/Demographic", "New Flavor Performance"],
-            "importance": "Critical for product development and inventory planning"
-        },
-        {
-            "name": "Device vs. Consumable Analysis",
-            "description": "Comparison of device sales versus consumable sales (e.g., vape devices vs. e-liquids)",
-            "metrics": ["Device-to-Consumable Ratio", "Customer Lifetime by Device Type", "Attachment Rate", "Reorder Rate for Consumables", "Upgrade Patterns"],
-            "importance": "Important for understanding the full customer lifecycle and revenue patterns"
-        },
-        {
-            "name": "Nicotine Strength Analysis",
-            "description": "Analysis of sales by nicotine strength levels",
-            "metrics": ["Sales by Nicotine Strength", "Strength Preferences by Customer Segment", "Strength Trends Over Time", "Regional Strength Preferences", "Conversion Between Strengths"],
-            "importance": "Valuable for product planning and understanding customer preferences"
-        }
-    ]
+        # Display specialized reports in a table
+        specialized_df = pd.DataFrame(specialized_reports)
+        st.dataframe(specialized_df[["name", "description", "importance"]], use_container_width=True)
     
-    # Display specialized reports in a table
-    specialized_df = pd.DataFrame(specialized_reports)
-    st.dataframe(specialized_df[["name", "description", "importance"]], use_container_width=True)
-    
+    with tab7: 
     # Future AI/ML Enhanced Reports
-    st.write("### Future AI/ML Enhanced Reports (Phase 2)")
+        st.write("### Future AI/ML Enhanced Reports (Phase 2)")
     
-    future_reports = [
-        {
-            "name": "Predictive Inventory Management",
-            "description": "AI-driven forecasting of inventory needs based on historical data, seasonality, and market trends",
-            "ai_features": ["Demand forecasting", "Automated reorder point calculation", "Stockout prediction", "Seasonal trend identification"]
-        },
-        {
-            "name": "Customer Churn Prediction",
-            "description": "Machine learning models to identify customers at risk of churning",
-            "ai_features": ["Churn risk scoring", "Early warning indicators", "Recommended retention actions", "Churn reason prediction"]
-        },
-        {
-            "name": "Product Recommendation Engine",
-            "description": "Personalized product recommendations based on customer behavior and preferences",
-            "ai_features": ["Collaborative filtering", "Product affinity analysis", "Next best product prediction", "Personalized marketing suggestions"]
-        },
-        {
-            "name": "Sentiment Analysis Dashboard",
-            "description": "Natural language processing of customer reviews, support interactions, and social media mentions",
-            "ai_features": ["Sentiment scoring", "Topic extraction", "Trend analysis", "Competitive sentiment comparison"]
-        },
-        {
-            "name": "Anomaly Detection Dashboard",
-            "description": "Real-time detection of unusual patterns in sales, inventory, or customer behavior",
-            "ai_features": ["Fraud detection", "Price error identification", "Unusual buying pattern alerts", "Website performance anomalies"]
-        },
-        {
-            "name": "Customer Lifetime Value Prediction",
-            "description": "Prediction of potential lifetime value for customers based on early purchase behavior",
-            "ai_features": ["LTV prediction models", "High-value customer identification", "Acquisition channel evaluation", "Customer segment potential analysis"]
-        }
-    ]
+        future_reports = [
+            {
+                "name": "Predictive Inventory Management",
+                "description": "AI-driven forecasting of inventory needs based on historical data, seasonality, and market trends",
+                "ai_features": ["Demand forecasting", "Automated reorder point calculation", "Stockout prediction", "Seasonal trend identification"]
+            },
+            {
+                "name": "Customer Churn Prediction",
+                "description": "Machine learning models to identify customers at risk of churning",
+                "ai_features": ["Churn risk scoring", "Early warning indicators", "Recommended retention actions", "Churn reason prediction"]
+            },
+            {
+                "name": "Product Recommendation Engine",
+                "description": "Personalized product recommendations based on customer behavior and preferences",
+                "ai_features": ["Collaborative filtering", "Product affinity analysis", "Next best product prediction", "Personalized marketing suggestions"]
+            },
+            {
+                "name": "Sentiment Analysis Dashboard",
+                "description": "Natural language processing of customer reviews, support interactions, and social media mentions",
+                "ai_features": ["Sentiment scoring", "Topic extraction", "Trend analysis", "Competitive sentiment comparison"]
+            },
+            {
+                "name": "Anomaly Detection Dashboard",
+                "description": "Real-time detection of unusual patterns in sales, inventory, or customer behavior",
+                "ai_features": ["Fraud detection", "Price error identification", "Unusual buying pattern alerts", "Website performance anomalies"]
+            },
+            {
+                "name": "Customer Lifetime Value Prediction",
+                "description": "Prediction of potential lifetime value for customers based on early purchase behavior",
+                "ai_features": ["LTV prediction models", "High-value customer identification", "Acquisition channel evaluation", "Customer segment potential analysis"]
+            }
+        ]
     
-    # Create columns for future reports
-    col1, col2 = st.columns(2)
+        # Create columns for future reports
+        col1, col2 = st.columns(2)
+        
+        for i, report in enumerate(future_reports):
+            # Alternate between columns
+            with col1 if i % 2 == 0 else col2:
+                with st.expander(report["name"]):
+                    st.write(f"**Description:** {report['description']}")
+                    st.write("**AI/ML Features:**")
+                    for feature in report["ai_features"]:
+                        st.write(f"- {feature}")
     
-    for i, report in enumerate(future_reports):
-        # Alternate between columns
-        with col1 if i % 2 == 0 else col2:
-            with st.expander(report["name"]):
-                st.write(f"**Description:** {report['description']}")
-                st.write("**AI/ML Features:**")
-                for feature in report["ai_features"]:
-                    st.write(f"- {feature}")
+    with tab7: 
                 
-    # Implementation roadmap
-    st.write("### Implementation Roadmap")
-    
-    st.write("""
-    **Phase 1: Core Dashboards (1-3 months)**
-    1. Executive KPI Dashboard
-    2. Sales Performance Dashboard
-    3. Inventory Management Dashboard
-    4. Financial Performance Dashboard
-    5. Customer Satisfaction Dashboard
-    
-    **Phase 2: Extended Dashboards (3-6 months)**
-    1. Complete all remaining standard dashboards
-    2. Implement specialized vape industry reports
-    3. Develop custom reports based on initial user feedback
-    
-    **Phase 3: AI/ML Enhanced Analytics (6-12 months)**
-    1. Implement predictive inventory management
-    2. Deploy customer churn prediction models
-    3. Develop product recommendation engine
-    4. Implement sentiment analysis of customer feedback
-    5. Develop real-time anomaly detection
-    """)
+        # Implementation roadmap
+        st.write("### Implementation Roadmap")
+        
+        st.write("""
+        **Phase 1: Core Dashboards (1-3 months)**
+        1. Executive KPI Dashboard
+        2. Sales Performance Dashboard
+        3. Inventory Management Dashboard
+        4. Financial Performance Dashboard
+        5. Customer Satisfaction Dashboard
+        
+        **Phase 2: Extended Dashboards (3-6 months)**
+        1. Complete all remaining standard dashboards
+        2. Implement specialized vape industry reports
+        3. Develop custom reports based on initial user feedback
+        
+        **Phase 3: AI/ML Enhanced Analytics (6-12 months)**
+        1. Implement predictive inventory management
+        2. Deploy customer churn prediction models
+        3. Develop product recommendation engine
+        4. Implement sentiment analysis of customer feedback
+        5. Develop real-time anomaly detection
+        """)

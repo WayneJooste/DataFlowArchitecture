@@ -57,12 +57,12 @@ def display_data_sources():
             "integration_complexity": "Low"
         },
         {
-            "name": "Rakuten",
-            "category": "Affiliate Marketing",
-            "data_type": "Performance Marketing",
+            "name": "ShipNetwork",
+            "category": "Warehousing and Fulfillment",
+            "data_type": "Logistics and Order Fulfillment Data",
             "api_availability": "Yes - REST API",
             "refresh_frequency": "Daily",
-            "key_data_elements": "Affiliate sales, Commissions, Clicks, Conversions",
+            "key_data_elements": "Inventory levels, Order statuses, Shipping tracking, Warehouse locations",
             "integration_complexity": "Medium"
         },
         {
@@ -124,7 +124,7 @@ def display_data_sources():
                 
                 # Show integration approach
                 st.write("**Integration Approach:**")
-                st.write(f"Data from {source['name']} will be extracted via its API and loaded into staging tables in PostgreSQL. The data will then be transformed using DBT Core into analytics-ready models.")
+                st.write(f"Data from {source['name']} will be extracted via its API and loaded into staging tables in AlcheSanctum. The data will then be transformed using DBT Core into analytics-ready models.")
                 
                 # Show sample data model
                 if source['name'] in ["Shopify", "Xero", "Klaviyo"]:
@@ -278,7 +278,7 @@ dim_lists (
                 "model": "Inventory",
                 "fact_tables": "fact_inventory_movements, fact_stock_levels",
                 "dimension_tables": "dim_products, dim_locations, dim_dates",
-                "data_sources": "CIN7 Core, Shopify"
+                "data_sources": "CIN7 Core, Shopify, ShipNetwork"
             },
             {
                 "model": "Financial",
@@ -290,7 +290,7 @@ dim_lists (
                 "model": "Marketing",
                 "fact_tables": "fact_marketing_campaigns, fact_marketing_events, fact_affiliate_sales",
                 "dimension_tables": "dim_campaigns, dim_channels, dim_affiliates, dim_dates",
-                "data_sources": "Klaviyo, Rakuten, Refersion, Google Analytics"
+                "data_sources": "Klaviyo, Refersion, Google Analytics"
             },
             {
                 "model": "Customer Support",
@@ -351,10 +351,10 @@ dim_lists (
         2. **Load**: Raw data is loaded into the data warehouse
         3. **Transform**: DBT Core transforms raw data into analytics-ready models
         
-        Apache Airflow orchestrates this entire process, with the following workflow:
+        AlcheFlow orchestrates this entire process, with the following workflow:
         
         1. Extract data from source systems
-        2. Load raw data into staging area in PostgreSQL
+        2. Load raw data into staging area in AlcheSanctum
         3. Run DBT transformations to create analytics models
         4. Validate data quality
         5. Refresh Superset dashboards
