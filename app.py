@@ -67,7 +67,7 @@ elif page == "Architecture Cost Estimates":
     st.write("""
     Estimated costs for Architecture build.
     """)
-    display_reports_dashboards()
+    display_potv_ce()
 
 # Footer
 st.markdown("---")
