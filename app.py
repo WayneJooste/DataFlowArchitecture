@@ -83,7 +83,7 @@ st.markdown("---")
 st.image("assets/logo.png", width=150)
 st.markdown(
     """
-    <div style="text-align: center;">
+    <div style="text-align: left;">
         BI Architecture Migration Planning Tool | Created by Data Alchemist
     </div>
     """,
