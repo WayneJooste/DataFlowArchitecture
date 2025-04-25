@@ -260,7 +260,7 @@ def display_reports_dashboards():
     
         # Display specialized reports in a table
         specialized_df = pd.DataFrame(specialized_reports)
-        st.dataframe(specialized_df[["name", "description", "importance"]], use_container_width=True)
+        st.dataframe(specialized_df[["name", "description","metrics", "importance"]], use_container_width=True)
     
     with tab7: 
     # Future AI/ML Enhanced Reports
