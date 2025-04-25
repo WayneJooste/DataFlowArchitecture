@@ -18,7 +18,7 @@ st.set_page_config(
 # Inject favicon manually
 st.markdown(
     """
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="/app/assets/favicon.png" type="image/png">
     """,
     unsafe_allow_html=True
 )
@@ -83,7 +83,7 @@ st.markdown("---")
 st.markdown(
     """
     <div style="text-align: center;">
-        <img src="assets/logo.png" width="150">
+        <img src="/app/assets/logo.png" width="150">
         <br>
         BI Architecture Migration Planning Tool | Created by Data Alchemist
     </div>
