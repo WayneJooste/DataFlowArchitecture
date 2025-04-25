@@ -22,14 +22,14 @@ page = st.sidebar.radio(
 )
 
 # Page title and intro
-st.title("BI Architecture Migration: DOMO to AWS")
+st.title("BI Architecture Migration: DOMO to Amazon Web Services (AWS)")
 
 # Display the selected page
 if page == "Architecture Overview":
     st.header("Architecture Diagram")
     st.write("""
     This diagram illustrates the proposed migration from DOMO to a modern AWS-based BI architecture 
-    using PostgreSQL, Apache Airflow, and Apache Superset. It shows both the current phase and 
+    using AlcheSanctum, AlcheFlow, and Apache Superset. It shows both the current phase and 
     future expansion to incorporate AI/ML and real-time analytics.
     """)
     display_architecture_diagram()
@@ -58,7 +58,7 @@ elif page == "Standard Reports & Dashboards":
 elif page == "POTV - Superset intro":
     st.header("POTV - Superset intro")
     st.write("""
-    An inntroduction video to Superset.
+    An introduction video to Superset.
     """)
     display_superset_intro()
 
