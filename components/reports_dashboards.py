@@ -311,7 +311,7 @@ def display_reports_dashboards():
                     for feature in report["ai_features"]:
                         st.write(f"- {feature}")
     
-    with tab7: 
+    with tab8: 
                 
         # Implementation roadmap
         st.write("### Implementation Roadmap")
