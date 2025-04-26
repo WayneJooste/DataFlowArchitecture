@@ -19,7 +19,7 @@ st.set_page_config(
 st.sidebar.title("Navigation")
 page = st.sidebar.radio(
     "Select a section:",
-    ["Architecture Overview", "Component Descriptions", "Data Sources", "Standard Reports & Dashboards","POTV - Superset intro","Architecture Cost Estimates"]
+    ["Architecture Overview", "Component Descriptions", "Data Sources", "Standard Reports & Dashboards","POTV - Superset intro"]
 )
 
 # Page title and intro
@@ -63,20 +63,13 @@ elif page == "POTV - Superset intro":
     """)
     display_superset_intro()
 
-elif page == "Architecture Cost Estimates":
-    st.header("Architecture Cost Estimates")
-    st.write("""
-    Estimated costs for Architecture build.
-    """)
-    display_potv_ce()
 
 # Footer
 st.markdown("---")
-st.image("assets/logo.jpg", width=150)
 st.markdown(
     """
     <div style="text-align: left;">
-        BI Architecture Migration Planning Tool | Created by Data Alchemist
+        BI Architecture Migration Planning Tool 
     </div>
     """,
     unsafe_allow_html=True
