@@ -15,14 +15,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Inject favicon manually
-st.markdown(
-    """
-    <link rel="shortcut icon" href="/app/assets/favicon.png" type="image/png">
-    """,
-    unsafe_allow_html=True
-)
-
 # Sidebar for navigation
 st.sidebar.title("Navigation")
 page = st.sidebar.radio(
