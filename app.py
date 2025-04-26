@@ -5,8 +5,6 @@ from components.data_sources import display_data_sources
 from components.reports_dashboards import display_reports_dashboards
 from components.superset_intro import display_superset_intro
 from components.potv_ce import display_potv_ce
-from docx import Document
-from docx.shared import Inches
 
 # Page configuration
 
@@ -17,49 +15,20 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Inject favicon manually
+st.markdown(
+    """
+    <link rel="shortcut icon" href="/app/assets/favicon.png" type="image/png">
+    """,
+    unsafe_allow_html=True
+)
+
 # Sidebar for navigation
 st.sidebar.title("Navigation")
 page = st.sidebar.radio(
     "Select a section:",
-    [
-        "Architecture Overview", 
-        "Component Descriptions", 
-        "Data Sources", 
-        "Standard Reports & Dashboards",
-        "POTV - Superset intro",
-        "Architecture Cost Estimates"
-    ]
+    ["Architecture Overview", "Component Descriptions", "Data Sources", "Standard Reports & Dashboards","POTV - Superset intro","Architecture Cost Estimates"]
 )
-# Word File Creation Function
-def create_word_file():
-    doc = Document()
-    doc.add_picture('assets/logo.jpg', width=Inches(1.5))  # or logo.png if you want
-    doc.add_heading('BI Architecture Migration Tool', 0)
-    doc.add_paragraph('Created by Data Alchemist')
-    doc.add_heading('Introduction', level=1)
-    doc.add_paragraph('This tool assists with migrating BI systems from DOMO to AWS.')
-    doc.add_heading('Architecture Overview', level=1)
-    doc.add_paragraph('This diagram illustrates the migration from DOMO to a modern AWS-based BI architecture.')
-    doc.add_heading('Component Descriptions', level=1)
-    doc.add_paragraph('Detailed descriptions of each technology component.')
-    doc.add_heading('Data Sources', level=1)
-    doc.add_paragraph('Overview of the various data sources and integration into AWS architecture.')
-    doc.add_heading('Standard Reports & Dashboards', level=1)
-    doc.add_paragraph('Recommended standard reports and dashboards for an online vaporization business.')
-    doc.add_heading('Architecture Cost Estimates', level=1)
-    doc.add_paragraph('Estimated costs for architecture build.')
-
-    doc.save('output.docx')
-
-# --- Add Word Download Button Below Navigation ---
-st.sidebar.markdown("---")  # horizontal line for separation
-st.sidebar.subheader("Export Options")
-if st.sidebar.button('Generate Word Report'):
-    # Call your Word file creation function
-    create_word_file()
-    with open('output.docx', 'rb') as f:
-        st.sidebar.download_button('Download Report', f, file_name='BI_Migration_Plan.docx')
-
 
 # Page title and intro
 st.title("BI Architecture Migration: DOMO to Amazon Web Services (AWS)")
